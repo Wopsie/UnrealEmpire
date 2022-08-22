@@ -1,0 +1,5 @@
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Development\Empires\Definitions.Empires.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Source\Empires\EmpiresBlock.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Inc\Empires\EmpiresBlock.generated.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Source\Empires\EmpiresBlockGrid.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Inc\Empires\EmpiresBlockGrid.generated.h

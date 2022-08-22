@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Empires.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{30912C49-F868-43B1-8E09-69732E2D9C87}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Empires.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\EmpiresEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{A014C206-85C8-4428-8E12-8F3137A8C716}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Empires">
+      <UniqueIdentifier>{1252C188-BD84-4C4E-818B-6D86D19F8771}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Empires\Empires.Build.cs">
+      <Filter>Source\Empires</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Empires\Empires.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\Empires.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\EmpiresBlock.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\EmpiresBlock.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\EmpiresBlockGrid.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\EmpiresBlockGrid.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\EmpiresGameMode.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\EmpiresGameMode.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\EmpiresPawn.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\EmpiresPawn.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\EmpiresPlayerController.cpp">
+      <Filter>Source\Empires</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\EmpiresPlayerController.h">
+      <Filter>Source\Empires</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
