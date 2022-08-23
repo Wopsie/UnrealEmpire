@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Empires.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{30912C49-F868-43B1-8E09-69732E2D9C87}</UniqueIdentifier>
+      <UniqueIdentifier>{46236298-749E-4EB5-B42E-8A0CD65E1BAE}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Empires.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{A014C206-85C8-4428-8E12-8F3137A8C716}</UniqueIdentifier>
+      <UniqueIdentifier>{D460FA74-9667-414D-B03D-2090C7808FC9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Empires">
-      <UniqueIdentifier>{1252C188-BD84-4C4E-818B-6D86D19F8771}</UniqueIdentifier>
+      <UniqueIdentifier>{00F6B656-64F7-423B-BD90-51126D515BDB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Empires\Empires.Build.cs">
       <Filter>Source\Empires</Filter>
@@ -70,6 +70,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Empires\EmpiresPlayerController.h">
       <Filter>Source\Empires</Filter>
+    </ClInclude>
+    <Filter Include="Source\Empires\Actors">
+      <UniqueIdentifier>{C2844524-6C99-4476-A91A-9CFACC405992}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Empires\Actors\ElipseSpawner.cpp">
+      <Filter>Source\Empires\Actors</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\Actors\ElipseSpawner.h">
+      <Filter>Source\Empires\Actors</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Empires\Actors\GalaxyGenerator.cpp">
+      <Filter>Source\Empires\Actors</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Empires\Actors\GalaxyGenerator.h">
+      <Filter>Source\Empires\Actors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

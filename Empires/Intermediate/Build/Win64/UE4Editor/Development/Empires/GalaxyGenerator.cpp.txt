@@ -1,0 +1,3 @@
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Development\Empires\Definitions.Empires.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Source\Empires\Actors\GalaxyGenerator.h
+D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Inc\Empires\GalaxyGenerator.generated.h
