@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"D:\\Unreal\\SpaceEmpireProj\\UnrealEmpire\\Empires\\Source\\Empires\\Empires.Build.cs",
-		"D:\\Unreal\\SpaceEmpireProj\\UnrealEmpire\\Empires\\Source\\Empires.Target.cs",
-		"D:\\Unreal\\SpaceEmpireProj\\UnrealEmpire\\Empires\\Source\\EmpiresEditor.Target.cs"
-	],
-	"EngineVersion": "4.27.2"
-}

@@ -1,5 +1,0 @@
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Development\Empires\Definitions.Empires.h
-C:\Program Files (x86)\Epic Games\UE4\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files (x86)\Epic Games\UE4\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Source\Empires/Actors/ElipseSpawner.h
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Inc\Empires\ElipseSpawner.generated.h

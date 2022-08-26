@@ -1,3 +1,0 @@
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Development\Empires\Definitions.Empires.h
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Source\Empires\EmpiresPlayerController.h
-D:\Unreal\SpaceEmpireProj\UnrealEmpire\Empires\Intermediate\Build\Win64\UE4Editor\Inc\Empires\EmpiresPlayerController.generated.h
