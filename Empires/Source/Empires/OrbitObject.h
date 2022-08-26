@@ -24,5 +24,5 @@ public:
 
 	//Function for generating orbiting children
 
-	virtual void GenerateOrbiters() = 0;
+	virtual void GenerateOrbiters();
 };

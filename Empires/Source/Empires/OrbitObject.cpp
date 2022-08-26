@@ -25,3 +25,9 @@ void AOrbitObject::Tick(float DeltaTime)
 	
 }
 
+void AOrbitObject::GenerateOrbiters()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Called Generate Orbiters on base"));
+	return;
+}
+

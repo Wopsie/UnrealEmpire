@@ -13,5 +13,6 @@ UCLASS()
 class EMPIRES_API ABlackHole : public AOrbitObject
 {
 	GENERATED_BODY()
-	
+public:
+	void GenerateOrbiters() override;
 };
