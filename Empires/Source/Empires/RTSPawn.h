@@ -47,7 +47,7 @@ public:
 	FIntVector screenSize;
 	
 	UPROPERTY()
-	float cameraSpeed = 3.f; 
+	float cameraSpeed = 20.f; 
 
 	//UPROPERTY()
 	//float cameraZoomSpeed = 4.f;

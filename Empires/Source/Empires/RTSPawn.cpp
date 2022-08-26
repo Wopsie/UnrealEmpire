@@ -26,12 +26,14 @@ ARTSPawn::ARTSPawn()
 
 	pSpringArm->bDoCollisionTest = false;
 	pSpringArm->SetRelativeRotation(FRotator(-70, 0, 0));
+	
 	pSpringArm->bEnableCameraLag = true;
 	pSpringArm->CameraLagSpeed = 10.0;
-	//pSpringArm->TargetArmLength = 50.f;
+	pSpringArm->TargetArmLength = 2000.f;
 
 	pCameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	pCameraComp->SetupAttachment(pSpringArm);
+	//Socketname of springarm is the end of it
+	pCameraComp->SetupAttachment(pSpringArm, USpringArmComponent::SocketName);
 
 }
 
