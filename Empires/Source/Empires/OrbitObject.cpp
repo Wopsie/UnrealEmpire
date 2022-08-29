@@ -12,7 +12,6 @@ AOrbitObject::AOrbitObject()
 void AOrbitObject::BeginPlay()
 {
 	Super::BeginPlay();
-	
 	//Run solar system spawning 
 }
 
@@ -25,7 +24,7 @@ void AOrbitObject::Tick(float DeltaTime)
 	
 }
 
-void AOrbitObject::GenerateOrbiters()
+void AOrbitObject::GenerateOrbiters(int a_Number, float a_Size)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Called Generate Orbiters on base"));
 	return;

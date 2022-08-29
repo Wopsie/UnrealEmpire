@@ -4,25 +4,28 @@
 
 #include "CoreMinimal.h"
 #include "OrbitObject.h"
-#include "BlackHole.generated.h"
+#include "Star.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class EMPIRES_API ABlackHole : public AOrbitObject
+class EMPIRES_API AStar : public AOrbitObject
 {
 	GENERATED_BODY()
+	
+
 public:
 	void BeginPlay() override;
+	void Tick(float DeltaTime) override;
 	void GenerateOrbiters(int a_Number, float a_Size) override;
 
-	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	int m_StarNumber;
 
+	//UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	//int elipseEntities;
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	float m_GalaxySize;
+	float m_SystemSize;
 
-	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	float m_MinDist;
+private:
+	TArray<AActor*> m_Planets;
 };
