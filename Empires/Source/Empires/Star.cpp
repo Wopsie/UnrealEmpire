@@ -36,7 +36,6 @@ void AStar::GenerateOrbiters(int a_Number, float a_Size)
 		loc.X = FMath::Cos(angle) * dist;
 		loc.Y = FMath::Sin(angle) * dist;
 		loc.Z = 0.0f;	// silly vertical Z axis
-		//loc.Z = GetActorLocation().Z;	// silly vertical Z axis
 
 		loc += this->GetActorLocation();
 		AActor* planet = GetWorld()->SpawnActor<AActor>(m_CelestialObj, loc, rot);

@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "BlackHole.h"
 #include "Star.h"
 
@@ -47,15 +44,15 @@ const int ABlackHole::GetStarNumber() const
 	return m_Stars.Num();
 }
 
-//spawn spiral shape, on planets spawn regular elipse shape
-void ABlackHole::GenerateOrbiters(int a_Number, float a_Size)	//could add a_MinDist to put at 0.3
+
+void ABlackHole::GenerateOrbiters(int a_Number, float a_Size)
 {
 	const FRotator rot = GetActorRotation();
 
 	const int numArms = 5;
 	const float armSeparationDist = 2 * PI / numArms;
 	const float armOffsetMax = 0.5f;
-	const float rotFactor = 0.00003;
+	const float rotFactor = 5;
 
 	int adjustedStars = 0;
 
@@ -69,12 +66,13 @@ void ABlackHole::GenerateOrbiters(int a_Number, float a_Size)	//could add a_MinD
 		armOffset = armOffset - armOffsetMax / 2;
 		armOffset = armOffset * (1 / dist);
 
-		// transform to galaxy size
+		float rotation = dist * rotFactor;
+
+
+		// transform to galaxy domain
 		dist = dist * a_Size;
 		if (dist < (a_Size * m_MinDist))
 		{
-			//dist *= a_Size * m_MinDist;
-			//dist *= 10; //can do 2
 			dist += (a_Size * m_MinDist);
 			adjustedStars++;
 		}
@@ -85,14 +83,8 @@ void ABlackHole::GenerateOrbiters(int a_Number, float a_Size)	//could add a_MinD
 			squaredArmOffset *= -1;
 		armOffset = squaredArmOffset;
 
-		float rotation = dist * rotFactor;
 
 		angle = (int)(angle / armSeparationDist) * armSeparationDist + armOffset + rotation;
-		//angle = (int)(angle / (armSeparationDist * dist)) * (armSeparationDist * dist) + (armOffset * dist);
-		
-		
-		//angle = (int)(angle / armSeparationDist) * armSeparationDist + armOffset + rotation;
-
 
 		FVector loc;
 		loc.X = (FMath::Cos(angle) * dist);

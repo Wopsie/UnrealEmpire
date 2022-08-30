@@ -1,31 +1,25 @@
 #include "OrbitObject.h"
 
-// Sets default values
 AOrbitObject::AOrbitObject()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
-// Called when the game starts or when spawned
 void AOrbitObject::BeginPlay()
 {
 	Super::BeginPlay();
-	//Run solar system spawning 
 }
 
-// Called every frame
 void AOrbitObject::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	//Probably rotate? 
-
-	
 }
 
+// spawn spiral shape on blackhole, on planets spawn regular elipse shape
 void AOrbitObject::GenerateOrbiters(int a_Number, float a_Size)
 {
+	// Not pure virtual because Planets dont currently spawn moons
 	UE_LOG(LogTemp, Warning, TEXT("Called Generate Orbiters on base"));
 	return;
 }

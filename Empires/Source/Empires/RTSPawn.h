@@ -27,27 +27,27 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY()
-	USceneComponent* pRootScene;
+	USceneComponent* m_RootScene;
 
 	UPROPERTY()
-	USpringArmComponent* pSpringArm;
+	USpringArmComponent* m_SpringArm;
 
 	UPROPERTY()
-	UCameraComponent* pCameraComp;
+	UCameraComponent* m_CameraComp;
 
 	UPROPERTY()
-	APlayerController* pPlayerController;
+	APlayerController* m_PlayerController;
 
 	UPROPERTY()
-	float marginX = 15.f;
+	float m_MarginX = 15.f;
 	UPROPERTY()
-	float marginY = 15.f;
+	float m_MarginY = 15.f;
 	
 	UPROPERTY()
-	FIntVector screenSize;
+	FIntVector m_ScreenSize;
 	
 	UPROPERTY()
-	float cameraSpeed = 20.f; 
+	float m_CameraSpeed = 20.f; 
 
 	//UPROPERTY()
 	//float cameraZoomSpeed = 4.f;
@@ -59,7 +59,7 @@ public:
 	FVector GetCamPanDirection();
 
 	/*UFUNCTION()
-	void ZoomCamera(const float& deltaTime);*/
+	void ZoomCamera(const float& a_DeltaTime);*/
 
 protected:
 	// Called when the game starts or when spawned

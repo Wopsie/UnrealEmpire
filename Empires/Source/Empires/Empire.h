@@ -16,11 +16,11 @@ class EMPIRES_API AEmpire : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	AEmpire();
 
+	virtual void Tick(float DeltaTime) override;
+
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	// For adding a colonization ship
@@ -43,8 +43,8 @@ protected:
 	ABlackHole* m_GalaxyCore;
 
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+private:	
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	FColor m_EmpireColor;
 
 };

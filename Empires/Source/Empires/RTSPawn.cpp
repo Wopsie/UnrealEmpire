@@ -15,25 +15,23 @@ ARTSPawn::ARTSPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	//Add components to actor (or is it blueprint?)
-
 	//Basically addcomponent
-	pRootScene = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
-	RootComponent = pRootScene;	
+	m_RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
+	RootComponent = m_RootScene;	
 
-	pSpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	pSpringArm->SetupAttachment(pRootScene); 
+	m_SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	m_SpringArm->SetupAttachment(m_RootScene); 
 
-	pSpringArm->bDoCollisionTest = false;
-	pSpringArm->SetRelativeRotation(FRotator(-70, 0, 0));
+	m_SpringArm->bDoCollisionTest = false;
+	m_SpringArm->SetRelativeRotation(FRotator(-70, 0, 0));
 	
-	pSpringArm->bEnableCameraLag = true;
-	pSpringArm->CameraLagSpeed = 10.0;
-	pSpringArm->TargetArmLength = 2000.f;
+	m_SpringArm->bEnableCameraLag = true;
+	m_SpringArm->CameraLagSpeed = 10.0;
+	m_SpringArm->TargetArmLength = 2000.f;
 
-	pCameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	//Socketname of springarm is the end of it
-	pCameraComp->SetupAttachment(pSpringArm, USpringArmComponent::SocketName);
+	m_CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	//Socketname of springarm is the end of the arm
+	m_CameraComp->SetupAttachment(m_SpringArm, USpringArmComponent::SocketName);
 
 }
 
@@ -42,8 +40,8 @@ void ARTSPawn::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	pPlayerController = Cast<APlayerController>(GetController());
-	pPlayerController->GetViewportSize(screenSize.X, screenSize.Y);
+	m_PlayerController = Cast<APlayerController>(GetController());
+	m_PlayerController->GetViewportSize(m_ScreenSize.X, m_ScreenSize.Y);
 
 
 }
@@ -54,7 +52,7 @@ void ARTSPawn::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//transform.translate sortof
-	AddActorWorldOffset(GetCamPanDirection() * cameraSpeed);
+	AddActorWorldOffset(GetCamPanDirection() * m_CameraSpeed);
 	//ZoomCamera(DeltaTime);
 }
 
@@ -69,47 +67,29 @@ FVector ARTSPawn::GetCamPanDirection()
 {
 	FVector2D mousePos;
 	FVector camDir = FVector(0, 0, 0);
-	pPlayerController->GetMousePosition(mousePos.X, mousePos.Y);
-
-	//UE_LOG(LogTemp, Warning, TEXT("Mouse position: %f, %f"), mousePos.X, mousePos.Y);
-	//UE_LOG(LogTemp, Warning, TEXT("Screensize: %d, %d"), screenSize.X, screenSize.Y);
+	m_PlayerController->GetMousePosition(mousePos.X, mousePos.Y);
 
 	// 0, 0 is in top left
 
-	if (mousePos.X <= marginX)
+	if (mousePos.X <= m_MarginX)
 	{
 		camDir.Y = -1;
 	}
 
-	if (mousePos.Y <= marginY)
+	if (mousePos.Y <= m_MarginY)
 	{
 		camDir.X = 1;
 	}
 
-	if (mousePos.X >= screenSize.X - marginX)
+	if (mousePos.X >= m_ScreenSize.X - m_MarginX)
 	{
 		camDir.Y = 1; 
 	}
 
-	if (mousePos.Y >= screenSize.Y - marginY)
+	if (mousePos.Y >= m_ScreenSize.Y - m_MarginY)
 	{
 		camDir.X = -1;
 	}
 
 	return camDir;
 }
-
-//void ARTSPawn::ZoomCamera(const float& deltaTime)
-//{
-//	// Apply zoom if we are not within 0.5 units of our desired zoom
-//	if (!FMath::IsNearlyEqual(pSpringArm->TargetArmLength, camZoomTarget, 0.5f))
-//	{
-//		// This allows us to smoothly zoom to our desired target arm length over time
-//		pSpringArm->TargetArmLength = FMath::FInterpTo(
-//			pSpringArm->TargetArmLength, // the current value
-//			camZoomTarget, // the desired length
-//			deltaTime, // time passed
-//			cameraZoomSpeed // speed at which to move
-//		);
-//	}
-//}
