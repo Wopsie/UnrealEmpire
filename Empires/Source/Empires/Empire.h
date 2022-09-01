@@ -47,4 +47,5 @@ private:
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	FColor m_EmpireColor;
 
+	// Game ends when all stars have been claimed
 };

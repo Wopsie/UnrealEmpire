@@ -46,8 +46,8 @@ public:
 	UPROPERTY()
 	FIntVector m_ScreenSize;
 	
-	UPROPERTY()
-	float m_CameraSpeed = 20.f; 
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	float m_CameraSpeed = 40.f; 
 
 	//UPROPERTY()
 	//float cameraZoomSpeed = 4.f;

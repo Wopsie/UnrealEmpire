@@ -8,7 +8,6 @@
 void AStar::BeginPlay()
 {
 	Super::BeginPlay();
-
 	GenerateOrbiters(FMath::RandRange(1, 3), m_SystemSize);
 }
 
@@ -16,21 +15,35 @@ void AStar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	for (AActor* planet : m_Planets)
-	{
-		DrawDebugLine(GetWorld(), planet->GetActorLocation(), this->GetActorLocation(), FColor().Red);
-	}
+	DrawDebugPoint(GetWorld(), GetActorLocation(), 4, FColor().Red);
+
+	//for (AActor* planet : m_Planets)
+	//{
+	//	DrawDebugLine(GetWorld(), planet->GetActorLocation(), this->GetActorLocation(), FColor().Red);
+	//}
+}
+
+void AStar::ClaimStar(unsigned int a_NewOwner)
+{
+	m_Owner = a_NewOwner;
+	// Maybe adjust color or something
 }
 
 void AStar::GenerateOrbiters(int a_Number, float a_Size)
 {
 	const FRotator rot = GetActorRotation();
-	const FVector scale = FVector(0.1, 0.1, 0.1);
+	FRandomStream seed = m_StarIndex;
 
 	for (int i = 0; i < a_Number; i++)
 	{
-		float dist = FMath::FRandRange(a_Size * 0.3, 1.0f * a_Size);
-		float angle = FMath::FRandRange(0.0f, 2 * PI);
+		float dist = seed.FRand();
+		float angle = seed.FRand() * 2 * PI;
+
+		dist = dist * a_Size;
+		if (dist < (a_Size * m_MinDist))
+		{
+			dist += (a_Size * m_MinDist);
+		}
 
 		FVector loc;
 		loc.X = FMath::Cos(angle) * dist;
@@ -41,7 +54,7 @@ void AStar::GenerateOrbiters(int a_Number, float a_Size)
 		AActor* planet = GetWorld()->SpawnActor<AActor>(m_CelestialObj, loc, rot);
 
 		planet->AttachToActor(this, FAttachmentTransformRules::KeepWorldTransform);
-		planet->SetActorScale3D(scale);
+		planet->SetActorScale3D(GetActorScale3D() * 0.2);
 
 		m_Planets.Emplace(planet);
 	}
