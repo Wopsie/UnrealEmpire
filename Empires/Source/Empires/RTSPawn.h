@@ -26,6 +26,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void ZoomIn();
+	void ZoomOut();
+	//void ZoomForReal(float val);
+
 	UPROPERTY()
 	USceneComponent* m_RootScene;
 
@@ -49,17 +53,16 @@ public:
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	float m_CameraSpeed = 40.f; 
 
-	//UPROPERTY()
-	//float cameraZoomSpeed = 4.f;
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	float m_CameraZoomSpeed = 4.f;
 
-	//UPROPERTY()
-	//float camZoomTarget = 5.f;
+	UPROPERTY()
+	float m_CamZoomTarget = 2000;
 
 	UFUNCTION()
 	FVector GetCamPanDirection();
 
-	/*UFUNCTION()
-	void ZoomCamera(const float& a_DeltaTime);*/
+	void ZoomCamera(const float& a_DeltaTime);
 
 protected:
 	// Called when the game starts or when spawned

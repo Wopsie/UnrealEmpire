@@ -2,12 +2,12 @@
 
 
 #include "RTSPawn.h"
-//#include "Components/SceneComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/CameraComponent.h"
 #include "Math/IntVector.h"
-
+#include "InputCoreTypes.h"
+#include "Components/InputComponent.h"
 
 // Sets default values
 ARTSPawn::ARTSPawn()
@@ -43,7 +43,11 @@ void ARTSPawn::BeginPlay()
 	m_PlayerController = Cast<APlayerController>(GetController());
 	m_PlayerController->GetViewportSize(m_ScreenSize.X, m_ScreenSize.Y);
 
-
+	if (InputComponent)
+	{
+		InputComponent->BindAction("ZoomIn", IE_Pressed, this, &ARTSPawn::ZoomIn);
+		InputComponent->BindAction("ZoomOut", IE_Pressed, this, &ARTSPawn::ZoomOut);
+	}
 }
 
 // Called every frame
@@ -52,8 +56,8 @@ void ARTSPawn::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//transform.translate sortof
-	AddActorWorldOffset(GetCamPanDirection() * m_CameraSpeed);
-	//ZoomCamera(DeltaTime);
+	AddActorWorldOffset(GetCamPanDirection() * (m_CameraSpeed * (m_CamZoomTarget * 0.001f)));
+	ZoomCamera(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -92,4 +96,29 @@ FVector ARTSPawn::GetCamPanDirection()
 	}
 
 	return camDir;
+}
+
+void ARTSPawn::ZoomIn()
+{
+	//set target distance i guess
+	m_CamZoomTarget *= 0.9f;
+}
+
+void ARTSPawn::ZoomOut()
+{
+	//Here too i suppose
+	m_CamZoomTarget *= 1.1f;
+
+}
+
+void ARTSPawn::ZoomCamera(const float& a_DeltaTime)
+{
+	//positive value = zooming out
+	 //Zoom in or out as necessary
+	if (!FMath::IsNearlyEqual(m_SpringArm->TargetArmLength, m_CamZoomTarget, 0.5f))
+	{
+		// This allows us to smoothly zoom to our desired target arm length over time
+		m_SpringArm->TargetArmLength = FMath::FInterpTo(m_SpringArm->TargetArmLength, m_CamZoomTarget,
+			a_DeltaTime, m_CameraZoomSpeed);
+	}
 }
