@@ -22,16 +22,15 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
 	// For adding a colonization ship
 	void AddShip(const int& a_Index);
-	// For beginning the claiming process of a solar system. The more planets, the slower
-	void StartClaim();	// maybe add time to claim? based on number of planets?
-	
 	// For picking a star, whether that be to spawn on or to add to colonization ship route
 	void Pick();
-	
 	void PickRandom();
+
+	// For beginning the claiming process of a solar system. The more planets, the slower
+	UFUNCTION()
+	void StartClaim(int32 a_ReachedStarIndex);	// maybe add time to claim? based on number of planets?
 
 	// The star system this empire spawn on
 	AStar* m_HomeWorld;
@@ -39,10 +38,7 @@ protected:
 	// All ships this empire has control over
 	TArray<AActor*> m_Fleet;
 	// All stars this empire owns
-	TArray<AOrbitObject*> m_OwnedSystems;
-
 	ABlackHole* m_GalaxyCore;
-
 
 private:	
 	void AddStar(AStar* a_Star);

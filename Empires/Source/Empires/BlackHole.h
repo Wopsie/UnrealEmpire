@@ -16,7 +16,7 @@ class EMPIRES_API ABlackHole : public AOrbitObject
 public:
 	void BeginPlay() override;
 	void GenerateOrbiters(int a_Number, float a_Size) override;
-	const TArray<AStar*>& GetStars() const;
+	TArray<AStar*>* const GetStars() const;
 	const AStar& GetStarAtIndex(const int& a_Index) const;
 	AStar& GetStarRefAtIndex(const int& a_Index);
 	const int GetStarNumber() const;
@@ -32,4 +32,5 @@ private:
 	float m_MinDist;
 
 	TArray<AStar*> m_Stars;
+	TArray<AStar*>* const m_ConstPStars = &m_Stars;	//UE has forced my hand
 };

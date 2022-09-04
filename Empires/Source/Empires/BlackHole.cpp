@@ -10,9 +10,9 @@ void ABlackHole::BeginPlay()
 	GenerateOrbiters(m_StarNumber, m_GalaxySize);
 }
 
-const TArray<AStar*>& ABlackHole::GetStars() const
+TArray<AStar*>* const ABlackHole::GetStars() const
 {
-	return m_Stars;
+	return m_ConstPStars;
 }
 
 const AStar& ABlackHole::GetStarAtIndex(const int& a_Index) const
@@ -100,7 +100,7 @@ void ABlackHole::GenerateOrbiters(int a_Number, float a_Size)
 
 		AActor* star = GetWorld()->SpawnActorDeferred<AActor>(m_CelestialObj, trans, this);
 		m_Stars.Emplace(Cast<AStar>(star));
-		Cast<AStar>(star)->m_StarIndex = i;
+		Cast<AStar>(star)->SetIndex(i);
 		UGameplayStatics::FinishSpawningActor(star, trans);
 		star->AttachToActor(this, FAttachmentTransformRules::KeepWorldTransform);
 

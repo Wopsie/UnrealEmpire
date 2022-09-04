@@ -17,10 +17,6 @@ void AStar::Tick(float DeltaTime)
 	
 	DrawDebugPoint(GetWorld(), GetActorLocation(), 4, FColor().Red);
 
-	//for (AActor* planet : m_Planets)
-	//{
-	//	DrawDebugLine(GetWorld(), planet->GetActorLocation(), this->GetActorLocation(), FColor().Red);
-	//}
 }
 
 bool AStar::ClaimStar(unsigned int a_NewOwner)

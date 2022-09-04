@@ -4,6 +4,7 @@
 #include "EngineUtils.h"
 #include "DrawDebugHelpers.h"
 #include "Kismet/GameplayStatics.h"
+#include "SpaceShip.h"
 
 AEmpire::AEmpire()
 {
@@ -49,22 +50,34 @@ void AEmpire::Tick(float DeltaTime)
 
 void AEmpire::AddShip(const int& a_Index)
 {
-	// add ship at index of star
-	//AActor* star = GetWorld()->SpawnActorDeferred<AActor>(m_CelestialObj, trans, this);
-
+	if (!m_OwnedStars.Contains(a_Index))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Requested star not found"));
+		return;
+	}
 
 	FTransform trans; 
-	trans.SetLocation(m_HomeWorld->GetActorLocation());
+	trans.SetLocation(m_OwnedStars[a_Index]->GetActorLocation());
 	AActor* ship = GetWorld()->SpawnActorDeferred<AActor>(m_Ship, trans, this);
 
-	// do stuff with ship
+	Cast<ASpaceShip>(ship)->AgregateStars(m_GalaxyCore->GetStars());
+	Cast<ASpaceShip>(ship)->SetOwner(m_EmpireIndex, m_HomeWorld->GetIndex());
+	Cast<ASpaceShip>(ship)->m_OnPlanetReached.AddDynamic(this, &AEmpire::StartClaim);
 
 	UGameplayStatics::FinishSpawningActor(ship, trans);
 }
 
 void AEmpire::AddStar(AStar* a_Star)
 {
-	// add claimed star index to the array, and record index of that star in index array
-	m_OwnedStars.Add(a_Star->m_StarIndex, a_Star);
+	m_OwnedStars.Add(a_Star->GetIndex(), a_Star);
+}
+
+void AEmpire::StartClaim(int32 a_ReachedStarIndex)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Received callback from spaceship at planet index: %d"), a_ReachedStarIndex);
+	int numPlanets = m_GalaxyCore->GetStarAtIndex(a_ReachedStarIndex).GetPlanetNum();
+
+	// delay ship departure for next star with amount of seconds that star has planets
+
 }
 
