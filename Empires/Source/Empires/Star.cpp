@@ -23,10 +23,11 @@ void AStar::Tick(float DeltaTime)
 	//}
 }
 
-void AStar::ClaimStar(unsigned int a_NewOwner)
+bool AStar::ClaimStar(unsigned int a_NewOwner)
 {
 	m_Owner = a_NewOwner;
 	// Maybe adjust color or something
+	return true;
 }
 
 void AStar::GenerateOrbiters(int a_Number, float a_Size)

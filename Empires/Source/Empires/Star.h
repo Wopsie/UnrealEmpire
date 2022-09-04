@@ -17,11 +17,11 @@ public:
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
 	void GenerateOrbiters(int a_Number, float a_Size) override;
-	void ClaimStar(unsigned int a_NewOwner);
+	bool ClaimStar(unsigned int a_NewOwner);
 
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	float m_SystemSize;
-	int m_StarIndex = 0;
+	int m_StarIndex = 0;	// hide this
 	unsigned int m_Owner = 0;	// 0 = unclaimed
 
 private:
