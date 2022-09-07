@@ -22,6 +22,8 @@ public:
 	const int GetStarNumber() const;
 
 private:
+	void GenerateDistMat(TArray<AStar*> a_Coordinates, TArray<TArray<float>*>& a_Matrix);
+	
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
 	int m_StarNumber;
 
@@ -33,4 +35,10 @@ private:
 
 	TArray<AStar*> m_Stars;
 	TArray<AStar*>* const m_ConstPStars = &m_Stars;	//UE has forced my hand
+	TArray<TArray<float>*>* m_StarDistMat;
+
+	//TMap<, float> m_DistanceMatrix;
+	//TSet<AStar*>
+
+	//might need structure containing unique ID for each combination of stars as key for traversing distance matrix
 };

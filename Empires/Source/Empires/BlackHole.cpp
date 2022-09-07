@@ -8,7 +8,28 @@ void ABlackHole::BeginPlay()
 	UE_LOG(LogTemp, Warning, TEXT("Backhole begin play"));
 
 	GenerateOrbiters(m_StarNumber, m_GalaxySize);
+
+	// Construct distance matrix for stars
+	//GenerateDistMat(m_Stars, *m_StarDistMat);
 }
+
+void ABlackHole::GenerateDistMat(TArray<AStar*> a_Coordinates, TArray<TArray<float>*>& a_Matrix)
+{
+	for (AStar* star1 : a_Coordinates)
+	{
+		for (AStar* star2 : a_Coordinates)
+		{
+			TArray<float>* distances = new TArray<float>();
+			float distance = 0;
+			
+			distance = FVector::Dist(star1->GetActorLocation(), star2->GetActorLocation());
+
+			distances->Emplace(distance);
+			a_Matrix.Emplace(distances);
+		}
+	}
+}
+
 
 TArray<AStar*>* const ABlackHole::GetStars() const
 {
